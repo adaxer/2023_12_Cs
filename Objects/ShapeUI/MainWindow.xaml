@@ -1,0 +1,16 @@
+﻿<Window x:Class="ShapeUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:shapes="clr-namespace:ShapeUI.Lib" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <UniformGrid Background="Black" Columns="3" Rows="2" x:Name="rootGrid">
+        <shapes:Circle Radius="50" Fill="0xFFFFFF00"/>
+        <shapes:Rectangle Width="80" Height="120" Stroke="0xFF000000" Fill="0xFF0000FF" />
+        <shapes:Square Side="90" Stroke="0xFFFFFF00" Fill="0xFF00FFFF" />
+        <Ellipse Width="150" Height="90" Fill="Red" Stroke="Blue" StrokeThickness="3" />
+        <Rectangle Width="120" Height="100" Fill="Green" Stroke="Yellow" StrokeThickness="3" />
+    </UniformGrid>
+</Window>
