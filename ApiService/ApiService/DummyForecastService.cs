@@ -8,9 +8,9 @@ public class DummyForecastService : IWeatherForecastService
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-    public WeatherForecast[] GetForecasts()
+    public ResultPage<WeatherForecast> GetForecasts(int pageSize, int pageNo)
     {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
+        var forecast = Enumerable.Range(1, 200).Skip(pageNo * pageSize).Take(pageSize).Select(index =>
                 new WeatherForecast
                 {
                     Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -18,6 +18,7 @@ public class DummyForecastService : IWeatherForecastService
                     Summary = summaries[Random.Shared.Next(summaries.Length)]
                 })
                 .ToArray();
-        return forecast;
+
+        return new ResultPage<WeatherForecast>(200, pageNo, pageSize, forecast);
     }
 }

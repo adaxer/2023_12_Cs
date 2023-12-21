@@ -2,5 +2,5 @@
 
 public interface IWeatherForecastService
 {
-    WeatherForecast[] GetForecasts();
+    ResultPage<WeatherForecast> GetForecasts(int pageSize=100, int pageNo=0);
 }

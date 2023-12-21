@@ -9,9 +9,9 @@ public class ForecastDataService : IWeatherForecastService
         this.connection = connection;
     }
 
-    public WeatherForecast[] GetForecasts()
+    public ResultPage<WeatherForecast> GetForecasts(int pageSize, int pageNo)
     {
         // Verwende connection
-        return Array.Empty<WeatherForecast>();
+        return new ResultPage<WeatherForecast>(0, 0, 0);
     }
 }

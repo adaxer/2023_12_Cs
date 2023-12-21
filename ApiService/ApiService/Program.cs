@@ -10,7 +10,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-        builder.Services.AddAuthorization();
+        builder.Services.AddAuthorization().AddEndpointsApiExplorer();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -37,9 +37,9 @@ public class Program
 
         app.UseAuthorization();
 
-        app.MapGet("/weatherforecast/dev", ([FromKeyedServices("Dev")] IWeatherForecastService service) =>
+        app.MapGet("/weatherforecast/dev/{pageSize}/{pageNo}", ([FromRoute] int pageSize, [FromRoute] int pageNo, [FromKeyedServices("Dev")] IWeatherForecastService service) =>
         {
-            return service.GetForecasts();
+            return service.GetForecasts(pageSize, pageNo);
         });
         app.MapGet("/weatherforecast/data", ([FromKeyedServices("Data")] IWeatherForecastService service) =>
         {
