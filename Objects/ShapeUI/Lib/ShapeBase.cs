@@ -36,18 +36,22 @@ public abstract class ShapeBase : Control
 	protected void PrepareDraw()
 	{
 		// Zeichnen vorbereiten
-		byte a = (byte) (_stroke >> 24);
-		byte r = (byte) (_stroke >> 16);
-		byte g = (byte) (_stroke >> 8);
-		byte b = (byte) _stroke;
+		var (a, r, g, b) = GetColorBytes(_stroke);
         Color color = Color.FromArgb(a, r, g, b);
 		_pen = new Pen(new SolidColorBrush(color), 2);
     
-		a = (byte)(Fill >> 24);
-        r = (byte)(Fill >> 16);
-        g = (byte)(Fill >> 8);
-        b = (byte) Fill;
+		(a,r,g,b) = GetColorBytes(Fill);
          color = Color.FromArgb(a, r, g, b);
         _brush = new SolidColorBrush(color);
+    }
+
+	(byte a, byte r, byte g, byte b) GetColorBytes(uint value)
+	{
+        byte a = (byte)(value >> 24);
+        byte r = (byte)(value >> 16);
+        byte g = (byte)(value >> 8);
+        byte b = (byte)value;
+
+		return (a, r, g, b);
     }
 }
