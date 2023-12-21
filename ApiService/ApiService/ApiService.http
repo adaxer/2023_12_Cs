@@ -1,0 +1,11 @@
+@ApiService_HostAddress = http://localhost:5124
+
+GET {{ApiService_HostAddress}}/weatherforecast/dev
+Accept: application/json
+
+###
+
+GET {{ApiService_HostAddress}}/weatherforecast/data
+Accept: application/json
+
+###
