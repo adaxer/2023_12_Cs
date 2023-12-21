@@ -45,6 +45,11 @@ public abstract class ShapeBase : Control
         _brush = new SolidColorBrush(color);
     }
 
+	/// <summary>
+	/// Beispiel einer Funktion, die Tupel zurückgibt
+	/// </summary>
+	/// <param name="value"></param>
+	/// <returns></returns>
 	(byte a, byte r, byte g, byte b) GetColorBytes(uint value)
 	{
         byte a = (byte)(value >> 24);
