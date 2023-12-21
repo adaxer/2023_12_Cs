@@ -47,7 +47,7 @@ public class MoviesController : ControllerBase
 
     [HttpGet("{id}", Name = "Movie")]
     [Produces(MediaTypeNames.Application.Json, MediaTypeNames.Application.Xml)]
-    public async Task<IActionResult> One(int id)
+    public async Task<IActionResult> Movie(int id)
     {
         var data = await _context.Movies.FindAsync(id);
         return data == null
@@ -73,7 +73,7 @@ public class MoviesController : ControllerBase
         {
             await _context.Movies.AddAsync(newMovie);
             await _context.SaveChangesAsync();
-            return CreatedAtAction("Movie", new { id = newMovie.Id }, newMovie);
+            return CreatedAtAction("Movie", new { id=newMovie.Id}, newMovie);
         }
         catch (Exception ex)
         {

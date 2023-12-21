@@ -45,7 +45,7 @@ public class Program
                 .AllowCredentials());
         });
 
-        builder.Services.AddHostedService<AddMovieService>();
+        // builder.Services.AddHostedService<AddMovieService>();
 
         builder.Services.AddSignalR(o => o.KeepAliveInterval = TimeSpan.FromSeconds(15));
 
