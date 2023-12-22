@@ -1,0 +1,11 @@
+@FileApi_HostAddress = http://localhost:5116
+
+GET {{FileApi_HostAddress}}/hello/
+Accept: application/json
+
+###
+
+GET {{FileApi_HostAddress}}/image/
+Accept: application/json
+
+###
